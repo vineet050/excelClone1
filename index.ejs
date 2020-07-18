@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Excel Clone</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu">
+                <div id="file-menu" data-content="file-menu-container">File</div>
+                <div id="home-menu" data-content="home-menu-container">Home</div>
+                <div id="data-menu" data-content="data-menu-container">Data</div>
+                <div>View</div>
+                <div>Help</div>
+            </div>
+            <div id="menu-content-container">
+                <div class='menu-container' id="file-menu-container">
+                    <div id="new">New</div>
+                    <div id="open">Open</div>
+                    <div id="save">Save</div>
+                </div>
+                <div class='menu-container' id="home-menu-container">
+                    <div class="menu-group">
+                        <div class="menu-row">
+                            <select id="font-family">
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Impact">Impact</option>
+                            </select>
+                            <select id="font-size">
+                                <option value="12">12</option>
+                                <option value="14">14</option>
+                                <option value="16">16</option>
+                                <option value="18">18</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="menu-row w12">
+                            <input id="bold" type="button" value="B">
+                            <input id="italic" type="button" value="I">
+                            <input id="underline" type="button" value="U">
+                            <input id="bgcolor" type="color" value="#FFFFFF">
+                            <input id="fgccolor" type="color" value="#000000">
+                        </div>
+                    </div>
+                    <div class="menu-group" id="alignment">
+                        <div class="menu-row1">
+                            <input id="center-align" type="button" prop-val="center" value="C" class="halign"> 
+                            <input id="left-align" type="button" prop-val="left" value="L" class="halign"> 
+                            <input id="right-align" type="button" prop-val="right" value="R" class="halign">                            
+                        </div>
+                        <div class="menu-row1">
+                            <input id="top-align" type="button" prop-val="top" value="T" class="valign"> 
+                            <input id="middle-align" type="button" prop-val="left" value="M" class="valign"> 
+                            <input id="bottom-align" type="button" prop-val="right" value="B" class="valign">                            
+                        </div>
+                    </div>
+                </div>
+                <div class='menu-container' id="data-menu-container">Menu</div>
+            </div>
+            <div class="formula">
+                <input id="textf" type="text" readonly="true">
+                <div id="qqq">:</div>
+                <input id="formula1" type="text">
+            </div>
+            <div class="content">
+                <div id="first"></div>
+                <div id="row1">
+                    <% for(let i=0;i<c;i++){ %>
+                        <div class="cell"><%= String.fromCharCode(65+i) %></div>
+                    <% } %>
+                </div>
+                <div id="col1">
+                        <% for(let i=1;i<=r;i++){ %>
+                            <div class="cell"  id="q1"><%= i %></div>
+                        <% } %>
+                </div>
+                <div id="grids">
+                    <% for(let i=0;i<r;i++) { %>
+                        <div class="row">
+                            <% for(let j=0;j<c;j++){ %>
+                                <div class="cell" contenteditable="true" rid="<%=i%>" cid="<%=j%>"></div>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="sheets">
+                <div>SHEET 1</div>
+                <div>+</div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
